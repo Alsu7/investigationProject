@@ -19,7 +19,8 @@ public class UserNote {
 
     @ManyToOne
     @MapsId("userStoryId")
-    @JoinColumn(name = "USER_STORY_ID", nullable = false)
+    @JoinColumn(name = "USER_ID", nullable = false)
+    @JoinColumn(name = "STORY_ID", nullable = false)
     private UserStory userStory;
 
     @ManyToOne
