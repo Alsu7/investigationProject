@@ -1,6 +1,5 @@
 package com.example.Investigation.model;
 
-import com.example.Investigation.model.Phase;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,23 +7,26 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "evidence")
+@Table(name = "userNote")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class Evidence {
+@AllArgsConstructor
+public class UserNote {
     @Id
     @GeneratedValue(generator = "increment")
     private Long id;
 
-    @Column(unique = true)
-    private String name;
+    @ManyToOne
+    @MapsId("userStoryId")
+    @JoinColumn(name = "USER_STORY_ID", nullable = false)
+    private UserStory userStory;
 
     @ManyToOne
-    @MapsId("phaseId")
-    @JoinColumn(name = "PHASE_ID", nullable = false)
-    private Phase phase;
+    @MapsId("characterId")
+    @JoinColumn(name = "CHARACTER_ID")
+    private Character character;
 
     private String description;
+
 }
