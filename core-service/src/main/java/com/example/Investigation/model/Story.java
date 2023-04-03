@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+
 @Table(name = "story")
 @Getter
 @Setter
@@ -19,6 +20,5 @@ public class Story {
     @Column(unique = true)
     private String name;
     private String description;
-
 
 }

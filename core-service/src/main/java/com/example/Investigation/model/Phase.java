@@ -1,6 +1,8 @@
 package com.example.Investigation.model;
 
+
 import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,4 +28,5 @@ public class Phase {
     private Story story;
 
     private String description;
+
 }
