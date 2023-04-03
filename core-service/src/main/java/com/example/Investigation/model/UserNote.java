@@ -1,31 +1,32 @@
 package com.example.Investigation.model;
 
-
 import jakarta.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "phase")
+@Table(name = "userNote")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class Phase {
+@AllArgsConstructor
+public class UserNote {
     @Id
     @GeneratedValue(generator = "increment")
     private Long id;
 
-    @Column(unique = true)
-    private String name;
+    @ManyToOne
+    @MapsId("userStoryId")
+    @JoinColumn(name = "USER_ID", nullable = false)
+    @JoinColumn(name = "STORY_ID", nullable = false)
+    private UserStory userStory;
 
     @ManyToOne
-    @MapsId("storyId")
-    @JoinColumn(name = "STORY_ID", nullable = false)
-    private Story story;
+    @MapsId("characterId")
+    @JoinColumn(name = "CHARACTER_ID")
+    private Character character;
 
     private String description;
 

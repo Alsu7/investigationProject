@@ -1,5 +1,6 @@
 package com.example.Investigation.model;
 
+import com.example.Investigation.model.Phase;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,17 +8,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table
+@Table(name = "evidence")
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Evidence {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
-    private String description;
+    @GeneratedValue(generator = "increment")
+    private Long id;
 
-    //TODO: Add normal field for entity
+    @Column(unique = true)
+    private String name;
+
+    @ManyToOne
+    @MapsId("phaseId")
+    @JoinColumn(name = "PHASE_ID", nullable = false)
+    private Phase phase;
+
+    private String description;
 }

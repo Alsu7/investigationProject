@@ -7,17 +7,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table
+
+@Table(name = "story")
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Story {
-    @jakarta.persistence.Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    @Id
+    @GeneratedValue(generator = "increment")
+    private Long id;
+    @Column(unique = true)
+    private String name;
     private String description;
-
-    //TODO: Add normal field for entity
 
 }
