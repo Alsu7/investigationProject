@@ -17,5 +17,5 @@ public class UserEvidenceId implements Serializable {
     private Long userId;
 
     @Column(name = "EVIDENCE_ID")
-    private Long evindenceId;
+    private Long evidenceId;
 }
